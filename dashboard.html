@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10223c">
+  <title>Aurora Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background" id="background" aria-hidden="true">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">A</span><span>Aurora</span></div>
+    <button class="icon-button" id="changeBackground" type="button" title="Change background" aria-label="Change background">✦</button>
+  </header>
+
+  <main class="dashboard">
+    <section class="hero" aria-label="Personal dashboard">
+      <p class="date" id="date">Monday, 1 January</p>
+      <h1 class="clock" id="clock">00:00</h1>
+      <div class="greeting-row">
+        <span id="greeting">Good morning</span>,
+        <button class="name-button" id="nameButton" type="button" title="Edit your name"><span id="name">friend</span>.</button>
+      </div>
+
+      <form class="focus-card" id="focusForm">
+        <label for="focusInput">Goal of the day</label>
+        <div class="focus-entry">
+          <input id="focusInput" type="text" maxlength="100" autocomplete="off" placeholder="What would make today successful?">
+          <button type="submit">Save</button>
+        </div>
+      </form>
+
+      <section class="focus-saved hidden" id="focusSaved" aria-live="polite">
+        <p>Goal of the day</p>
+        <div><button class="check-button" id="completeFocus" type="button" aria-label="Complete focus">✓</button><strong id="focusText"></strong><button class="text-button" id="editFocus" type="button">Edit</button></div>
+      </section>
+
+      <button class="start-focus-button" id="openFocus" type="button">Start Focus Mode</button>
+    </section>
+
+    <aside class="todo-card" aria-label="To-do list">
+      <div class="panel-heading"><div><span>Today</span><h2>To-do list</h2></div><strong id="taskCount">0 / 0</strong></div>
+      <form id="todoForm" class="todo-entry">
+        <input id="todoInput" type="text" maxlength="90" autocomplete="off" placeholder="Add a task…">
+        <button type="submit" aria-label="Add task">+</button>
+      </form>
+      <ul id="todoList" class="todo-list"></ul>
+      <p class="empty-tasks" id="emptyTasks">Your list is clear. Add the first task.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <blockquote id="quote">“Clarity comes from engagement, not thought.”</blockquote>
+    <p id="quoteAuthor">— Marie Forleo</p>
+  </footer>
+
+  <dialog id="nameDialog">
+    <form method="dialog" id="nameForm">
+      <h2>What should Aurora call you?</h2>
+      <input id="nameInput" type="text" maxlength="40" autocomplete="name" placeholder="Your name">
+      <div class="dialog-actions"><button type="button" id="cancelName" class="secondary">Cancel</button><button type="submit" id="saveName">Save</button></div>
+    </form>
+  </dialog>
+
+  <section class="focus-overlay hidden" id="focusOverlay" aria-label="Focus mode">
+    <button class="exit-focus" id="exitFocus" type="button">Exit focus</button>
+    <p class="focus-label">FOCUS SESSION</p>
+    <h2 id="focusGoal">Stay with the task</h2>
+    <div class="timer" id="timer">25:00</div>
+    <div class="timer-presets" id="timerPresets">
+      <button type="button" data-minutes="15">15 min</button>
+      <button type="button" data-minutes="25" class="active">25 min</button>
+      <button type="button" data-minutes="45">45 min</button>
+      <button type="button" data-minutes="60">60 min</button>
+    </div>
+    <div class="focus-actions">
+      <button class="primary-action" id="startTimer" type="button">Start</button>
+      <button class="secondary-action" id="resetTimer" type="button">Reset</button>
+    </div>
+    <label class="sound-control" for="soundSelect">Ambient sound
+      <select id="soundSelect">
+        <option value="off">Off</option>
+        <option value="rain">Soft rain</option>
+        <option value="brown">Brown noise</option>
+        <option value="music">Calm focus music</option>
+      </select>
+    </label>
+    <p class="focus-note">Aurora can enter full screen to reduce distractions. Press Esc at any time to leave full screen.</p>
+  </section>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Aurora Focus Dashboard",
+  "version": "3.0.0",
+  "description": "An optional personal dashboard with goals, tasks and a focused timer.",
+  "action": {
+    "default_title": "Open Aurora Dashboard"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
